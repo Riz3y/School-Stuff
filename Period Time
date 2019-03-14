@@ -1,0 +1,73 @@
+import datetime
+import notification
+import sound
+weekdays = ("monday","tuesday","wednesday","thursday","friday","saturday","Sunday")
+dateandtime = datetime.datetime.now()
+stringx = (str(dateandtime))
+hour = stringx[11:13]
+minute = stringx[14:16]
+year = stringx[0:4]
+month = stringx[5:7]
+day = stringx[8:10]
+today = datetime.date(int(year),int(month),int(day))
+thisweekday = today.weekday()
+dow = weekdays[thisweekday]
+time1 = hour + minute
+time = int(time1)
+if thisweekday > 4:
+ notification.schedule("It is a weekday! emj:Smiling_2")
+elif time < 830:
+ 	timeleft = 830 - time
+ 	if timeleft > 60:
+ 		timeleft = timeleft - 40
+ 	
+if thisweekday == 0:
+	print("Monday")
+#monday
+else:
+		if time > 845:
+			if time < 934:
+				timeleft = 934 - time
+				if timeleft > 60:
+					timeleft = timeleft - 40
+		if time > 937:
+			if time < 1026:
+				#2
+				timeleft = 986 - time
+				if timeleft > 60:
+					timeleft = timeleft - 40
+		if time > 1029:
+			if time < 1118:
+				timeleft = 1118 - time
+				if timeleft > 60:
+				 timeleft = timeleft - 40
+		if time > 1118:
+			if time < 1200:
+				timeleft = 1200 - time
+				if timeleft > 60:
+					timeleft = (timeleft - 49)
+		if time > 1200:
+			if time < 1242:
+				timeleft = 1242 - time
+				if timeleft > 60:
+					timeleft = timeleft - 40
+		if time > 1245:
+			if time < 1335:
+				timeleft = 1335 - time
+				if timeleft > 60:
+					timeleft = timeleft - 40
+		if time > 1338:
+			if time < 1428:
+				timeleft = 1428 - time
+				if timeleft > 60:
+					timeleft = timeleft - 40
+		if time > 1432:
+			if time<1522:
+				timeleft = 1522 - time
+				if timeleft > 60:
+					timeleft = timeleft - 40
+		if time > 1522:
+			notification.schedule("NO SCHOOL GO HOME!",0,'digital:PowerUp3')
+			timeleft = 0
+if timeleft > -1:
+	notification.schedule(timeleft,0,'sound=none')		
